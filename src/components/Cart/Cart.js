@@ -1,7 +1,16 @@
 import './Cart.css';
+import React, { useState } from 'react';
 
 const Cart = ({ cart, RemoveFromCart}) => {
-    const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const TotalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+
+    const handleCheckout = (e) => {
+        e.preventDefault();
+        console.log('Order submitted', { name, email, cart });
+        alert('Order submitted successfully!');
+    };    
 
   return (
     <div className="cart">
@@ -16,7 +25,24 @@ const Cart = ({ cart, RemoveFromCart}) => {
           </div>
         </div>
       ))}
-       <h3>Total Amount: ${totalAmount.toFixed(2)}</h3>
+       <h3>Total Amount: ${TotalAmount.toFixed(2)}</h3>
+       <form onSubmit={handleCheckout}>
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <button type="submit">Checkout</button>
+      </form>
     </div>
   );
 };
