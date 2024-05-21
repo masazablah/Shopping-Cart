@@ -1,6 +1,7 @@
 import './Cart.css';
 
 const Cart = ({ cart, RemoveFromCart}) => {
+    const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
     <div className="cart">
@@ -15,6 +16,7 @@ const Cart = ({ cart, RemoveFromCart}) => {
           </div>
         </div>
       ))}
+       <h3>Total Amount: ${totalAmount.toFixed(2)}</h3>
     </div>
   );
 };
