@@ -1,7 +1,10 @@
 import ProductGrid from './components/ProductGrid/ProductGrid';
 import './App.css';
+import React, { useState } from 'react';
+import Cart from './components/Cart/Cart'
 
 const App = () => {
+  const [cart, setCart] = useState([]);
   const products = [
     { id: 1, name: 'Beauty Blender, and powder puff', image: 'images/bb1.jpg', price: 10 },
     { id: 2, name: 'Face Razor', image: 'images/bb2.jpg', price: 20 },
@@ -11,9 +14,15 @@ const App = () => {
     { id: 6, name: 'Florence Maskara', image: 'images/maskara.jpg', price: 20 },
   ];
 
+  const AddToCart = (product) => {
+    setCart([...cart, product]);
+  };
+
+
   return (
     <div className="app">
-      <ProductGrid products={products}/>
+      <ProductGrid products={products}  AddToCart={AddToCart} />
+      <Cart cart={cart} />
     </div>
   );
 };
