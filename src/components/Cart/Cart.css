@@ -44,3 +44,17 @@
     color: #555;
   }
   
+  .item-details button {
+    align-self: flex-start;
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .item-details button:hover {
+    background-color: #ff1c22;
+  }

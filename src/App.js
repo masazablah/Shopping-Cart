@@ -18,11 +18,14 @@ const App = () => {
     setCart([...cart, product]);
   };
 
+  const RemoveFromCart = (index) => {
+    setCart(cart.filter((_, i) => i !== index));
+  };
 
   return (
     <div className="app">
       <ProductGrid products={products}  AddToCart={AddToCart} />
-      <Cart cart={cart} />
+      <Cart cart={cart} RemoveFromCart={RemoveFromCart}/>
     </div>
   );
 };

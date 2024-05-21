@@ -1,6 +1,6 @@
 import './Cart.css';
 
-const Cart = ({ cart}) => {
+const Cart = ({ cart, RemoveFromCart}) => {
 
   return (
     <div className="cart">
@@ -11,6 +11,7 @@ const Cart = ({ cart}) => {
           <div className="item-details">
             <h3>{item.name}</h3>
             <p>${item.price.toFixed(2)}</p>
+            <button onClick={() => RemoveFromCart(index)}>Remove</button>
           </div>
         </div>
       ))}
